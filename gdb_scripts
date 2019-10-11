@@ -1,0 +1,32 @@
+define print_vector_size
+    set $size = $arg0._M_impl._M_finish - $arg0._M_impl._M_start
+    printf "%s.size() = %d\n", "$arg0", $size
+end
+
+define print_vector
+    set $size = $arg0._M_impl._M_finish - $arg0._M_impl._M_start
+    if $argc == 2
+        set $elem = $arg1
+        if $arg1 >= $size
+            printf "Error, %s.size() = %d, printing last element:\n", "$arg0", $size
+            set $elem = $size -1
+        end
+        print *($arg0._M_impl._M_start + $elem)@1
+    else
+        print *($arg0._M_impl._M_start)@$size
+    end
+end
+
+document print_vector_size
+Display vector size
+Usage: print_vector_size VECTOR_NAME
+VECTOR_NAME is the name of the vector
+end
+
+document print_vector
+Display vector contents
+Usage: print_vector VECTOR_NAME INDEX
+VECTOR_NAME is the name of the vector
+INDEX is an optional argument specifying the element to display
+end
+
