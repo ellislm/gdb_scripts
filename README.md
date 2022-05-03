@@ -9,7 +9,7 @@ This repository contains a collection of scripts and Pretty Print functions to a
 ### Repository Scripts
 To install, run:
 ```
-$ git clone --recursive https://github.com/loganimation/gdb_scripts.git ~/.gdb.d
+$ git clone --recursive https://github.com/ellislm/gdb_scripts.git ~/.gdb.d
 ```
 Then add the following to your `~/.gdbinit`
 
